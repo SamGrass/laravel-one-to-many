@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Functions\Helper;
 use App\Models\Project;
 use Faker\Generator as Faker;
+use App\Models\Type;
 
 class ProjectSeeder extends Seeder
 {
@@ -16,7 +17,8 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker): void
     {
         for ($i = 0; $i < 100; $i++) {
-            $new_project = new Project;
+            $new_project = new Project();
+            $new_project->type_id = Type::inRandomOrder()->first()->id;
             $new_project->name = $faker->sentence;
             $new_project->slug = Helper::generateSlug($new_project->name, Project::class);
             $new_project->description = $faker->text;
