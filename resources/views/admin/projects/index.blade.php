@@ -14,6 +14,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Immagine</th>
+                <th scope="col">Tipo</th>
                 <th scope="col">Data di creazione</th>
                 <th scope="col">Azioni</th>
             </tr>
@@ -24,6 +25,7 @@
                 <th>{{ $project->id }}</th>
                 <td>{{ $project->name }}</td>
                 <td><img width="15%" class="img-fluid" src="{{ $project->img }}" alt=""></td>
+                <td><span class="badge text-bg-primary">{{ $project->type?->name }}</span></td>
                 <td>{{ $project->created_at->format('d/m/Y') }}</td>
                 <td>
                     <div class="d-flex gap-1">

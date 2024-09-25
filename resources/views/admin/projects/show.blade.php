@@ -17,6 +17,9 @@
     </div>
 
     <p>Creato il: {{ $project->created_at->format('d/m/Y') }}</p>
+    @if($project->type)
+    <p>Tipo: {{ $project->type->name }}</p>
+    @endif
     <img class="img-fluid" src="{{ $project->img }}" alt="">
     <h3>Descrizione</h3>
     <p>{{ $project->description }}</p>

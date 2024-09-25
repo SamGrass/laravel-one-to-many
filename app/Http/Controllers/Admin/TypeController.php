@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Type;
 
 class TypeController extends Controller
 {
@@ -61,5 +62,11 @@ class TypeController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function typeProjects()
+    {
+        $types = Type::all();
+        return view('admin.types.typeProjects', compact('types'));
     }
 }
